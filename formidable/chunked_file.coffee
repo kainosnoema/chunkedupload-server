@@ -26,7 +26,7 @@ class Chunk extends File
     @length += buffer.length # immediately increment to avoid race condition
     fs.write @_fd, buffer, 0, buffer.length, position, (err, written) =>
       #throw err if err
-      @emit 'progress', @length + written
+      @emit 'progress', @length
       cb()
   
   end: (cb) =>
